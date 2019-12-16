@@ -52,8 +52,10 @@ func NewComponent(kind int, name string) Component {
 	var c Component
 	switch kind {
 	case LeafNode:
+		// 叶子
 		c = NewLeaf()
 	case CompositeNode:
+		// 根
 		c = NewComposite()
 	}
 
@@ -87,10 +89,10 @@ func (c *component) SetName(name string) {
 	c.name = name
 }
 
-// AddChild ...
+// AddChild 根才能添加孩子节点，根会实现
 func (c *component) AddChild(Component) {}
 
-// Print ...
+// Print 根和叶子都会实现
 func (c *component) Print(string) {}
 
 // Leaf ...
@@ -121,7 +123,7 @@ func NewComposite() *Composite {
 	}
 }
 
-// AddChild ...
+// AddChild 根才能添加孩子节点
 func (c *Composite) AddChild(child Component) {
 	child.SetParent(c)
 	c.childs = append(c.childs, child)
