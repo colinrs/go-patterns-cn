@@ -122,6 +122,4 @@ func main() {
 	fmt.Println(b2.GetResult())
 
 }
-
-
 ```
